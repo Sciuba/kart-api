@@ -1,0 +1,6 @@
+br\com\sciuba\service\KartService.class
+br\com\sciuba\model\Pilot.class
+br\com\sciuba\model\Lap.class
+br\com\sciuba\to\KartResultTO.class
+br\com\sciuba\utils\FileReader.class
+br\com\sciuba\KartMain.class
