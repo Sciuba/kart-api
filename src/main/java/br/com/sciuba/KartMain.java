@@ -21,7 +21,7 @@ public class KartMain {
 			System.out.println("Resultado da Corrida:");
 			
 			result.forEach(r -> {
-				System.out.println(r.getPosition() + "° - " + (r.getPilot().getId() > 10 ? r.getPilot().getId() : "0"+ r.getPilot().getId()) + " - " + r.getPilot().getName() + "      Qtd Voltas Completas:" + r.getNumberOfCompleteLaps()
+				System.out.println(r.getPosition() + "° - " + (r.getPilot().getId() > 10 ? r.getPilot().getId() : "0"+ r.getPilot().getId()) + " - " + String.format("%1$-" + 13 + "s", r.getPilot().getName()) + "   Qtd Voltas Completas:" + r.getNumberOfCompleteLaps()
 						+ "  Tempo Total da Prova:" + r.getTotalTime().format(DateTimeFormatter.ofPattern("HH:mm:ss.SSS")) + "  Melhor Volta:" + r.getBestLap().format(DateTimeFormatter.ofPattern("HH:mm:ss.SSS"))
 						+ "  Velocidade Média:" + String.format("%.2f",r.getAverageSpeed()) + (r.getPosition() == 1 ? "  Tempo de Corrida:" + r.getPositionDiff() : "  Diferença para o primeiro colocado:" + r.getPositionDiff()));
 			});

@@ -92,7 +92,7 @@ public class KartService {
 	    	  map.put(lap.getPilot().getId(), "  " + DateTimeFormatter.ofPattern("HH:mm:ss.SSS").format(lap.getHour()));
 	      } else {
 	        Duration between = Duration.between(winner.get(), lap.getHour());
-	        map.put(lap.getPilot().getId(), "+ " + LocalTime.ofNanoOfDay(between.toNanos()).format(DateTimeFormatter.ofPattern("HH:mm:ss.SSS")));	        
+	        map.put(lap.getPilot().getId(), LocalTime.ofNanoOfDay(between.toNanos()).format(DateTimeFormatter.ofPattern("HH:mm:ss.SSS")));	        
 	      }
 	      i.set(i.get()+1);
 	    });
