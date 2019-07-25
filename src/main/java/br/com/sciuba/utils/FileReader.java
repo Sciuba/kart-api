@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import br.com.sciuba.converter.FileToObject;
+import br.com.sciuba.converter.FileConverter;
 import br.com.sciuba.model.Lap;
 
 public class FileReader {
@@ -26,7 +26,7 @@ public class FileReader {
 				count.set(1);
 			}else {
 				try {
-					listLaps.add(FileToObject.convert(l));
+					listLaps.add(FileConverter.convert(l));
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}

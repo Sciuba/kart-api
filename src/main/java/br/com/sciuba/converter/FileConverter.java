@@ -8,7 +8,7 @@ import br.com.sciuba.model.Lap;
 import br.com.sciuba.model.Pilot;
 
 
-public class FileToObject {
+public class FileConverter {
 
 	public final static String HOUR = "(\\d{2}):(\\d{2}):(\\d{2}).(\\d{3})";
 	public final static String PILOT_ID = "( \\d{3} )";
