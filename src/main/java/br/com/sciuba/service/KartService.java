@@ -33,8 +33,23 @@ public class KartService {
 		SortedSet<Lap> allLapsAsc = findAllLapsAsc(pilotsLaps);
 		Map<Long, String> pilotsPositionDiff = findByPilotsPositionDiff(allLapsAsc);
 		Map<Long, Lap> pilotsBestLap = findByPilotBestLap(pilotsLaps);
-				
+		Map<Long, LocalTime> totalRaceTime = totalRaceTime(pilotsLaps);
+		Map<Long, Double> averagePilotSpeed = averagePilotSpeed(pilotsLaps);
 		Lap bestLap = findBestLap(pilotsBestLap);
+		
+		AtomicInteger count = new AtomicInteger(1);
+		allLapsAsc.forEach(l -> {
+			KartResultTO kartTO = new KartResultTO();
+			kartTO.setPosition(count.getAndIncrement());
+			kartTO.setPilot(l.getPilot());
+			kartTO.setBestLap(pilotsBestLap.get(l.getPilot().getId()).getTimeLap());
+			kartTO.setBetterLapOfRace(bestLap);
+			kartTO.setAverageSpeed(averagePilotSpeed.get(l.getPilot().getId()));
+			kartTO.setNumberOfCompleteLaps(l.getLapNumber());
+			kartTO.setTotalTime(totalRaceTime.get(l.getPilot().getId()));
+			kartTO.setPositionDiff(pilotsPositionDiff.get(l.getPilot().getId()));
+			result.add(kartTO);
+		});
 		
 		return result;
 
@@ -66,7 +81,6 @@ public class KartService {
 	
 	public Map<Long, String> findByPilotsPositionDiff(SortedSet<Lap> listLap) {
 	    
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
 		Map<Long, String> map = new HashMap<>();
 
 	    AtomicInteger i = new AtomicInteger(1);
@@ -75,7 +89,7 @@ public class KartService {
 	    listLap.forEach(lap -> {
 	      if (i.get() == 1) {
 	    	  winner.set(lap.getHour());
-	    	  map.put(lap.getPilot().getId(), "  " + sdf.format(lap.getHour()));
+	    	  map.put(lap.getPilot().getId(), "  " + DateTimeFormatter.ofPattern("HH:mm:ss.SSS").format(lap.getHour()));
 	      } else {
 	        Duration between = Duration.between(winner.get(), lap.getHour());
 	        map.put(lap.getPilot().getId(), "+ " + LocalTime.ofNanoOfDay(between.toNanos()).format(DateTimeFormatter.ofPattern("HH:mm:ss.SSS")));	        
@@ -96,6 +110,16 @@ public class KartService {
 	    });
 
 	    return bestLap;
+	}
+	
+	public Map<Long, Double> averagePilotSpeed(Map<Long, SortedSet<Lap>> pilotsLaps) {
+		Map<Long, Double> map = new HashMap<>();
+
+		pilotsLaps.forEach((id, laps) -> {
+			map.put(id, laps.stream().collect(Collectors.summarizingDouble(Lap::getAverageLapSpeed)).getAverage());
+		});
+		
+		return map;
 	}
 	
 	public static Map<Long, LocalTime> totalRaceTime(Map<Long, SortedSet<Lap>> pilotsLaps) {

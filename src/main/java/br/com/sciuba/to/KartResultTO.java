@@ -8,14 +8,21 @@ import br.com.sciuba.model.Pilot;
 public class KartResultTO {
 	private Integer position;
 	private Pilot pilot;
-	private Integer numberOfCompleteLaps;
+	private Long numberOfCompleteLaps;
 	private LocalTime totalTime;
 	
 	private LocalTime bestLap;
 	private Lap betterLapOfRace;
 	private Double averageSpeed;
+	private String positionDiff;
 	
 	
+	public String getPositionDiff() {
+		return positionDiff;
+	}
+	public void setPositionDiff(String positionDiff) {
+		this.positionDiff = positionDiff;
+	}
 	public Integer getPosition() {
 		return position;
 	}
@@ -28,10 +35,10 @@ public class KartResultTO {
 	public void setPilot(Pilot pilot) {
 		this.pilot = pilot;
 	}
-	public Integer getNumberOfCompleteLaps() {
+	public Long getNumberOfCompleteLaps() {
 		return numberOfCompleteLaps;
 	}
-	public void setNumberOfCompleteLaps(Integer numberOfCompleteLaps) {
+	public void setNumberOfCompleteLaps(Long numberOfCompleteLaps) {
 		this.numberOfCompleteLaps = numberOfCompleteLaps;
 	}
 	public LocalTime getTotalTime() {
