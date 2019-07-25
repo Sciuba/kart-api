@@ -4,7 +4,9 @@ public class Pilot {
 	
 	private Long id;
 	private String name;
-	
+
+	public Pilot(){};
+
 	public Pilot(Long id, String name) {
 		this.id = id;
 		this.name = name;

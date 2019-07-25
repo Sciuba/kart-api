@@ -1,6 +1,5 @@
 package br.com.sciuba.utils;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -11,8 +10,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.xml.transform.sax.SAXTransformerFactory;
 
 import org.junit.Test;
 

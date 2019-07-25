@@ -1,6 +1,7 @@
 package br.com.sciuba.converter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -25,11 +26,12 @@ public class FileConverterTest {
 	    String lapTime = FileConverter.convertData(content, LAP_TIME);
 	    String averageLapSpeed = FileConverter.convertData(content, LAP_AVERAGE);
 	    
-	    assertEquals(hour, "23:50:17.472");
-	    assertEquals(pilotId, "023");
-	    assertEquals(pilotName, "M.WEBBER");
-	    assertEquals(lapNumber, "2");
-	    assertEquals(averageLapSpeed, "42,941");
+	    assertTrue(hour.equals("23:50:17.472"));
+		assertTrue(pilotId.equals("023"));
+		assertTrue(pilotName.equals("M.WEBBER"));
+		assertTrue(lapTime.equals("1:04.805"));
+		assertTrue(lapNumber.equals("2"));
+		assertTrue(averageLapSpeed.equals("42,941"));
 		
 	}
 

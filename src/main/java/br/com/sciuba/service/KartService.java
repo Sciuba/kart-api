@@ -1,6 +1,6 @@
 package br.com.sciuba.service;
 
-import java.text.SimpleDateFormat;
+
 import java.time.Duration;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -28,7 +28,7 @@ public class KartService {
 	public List<KartResultTO> finalResults(List<Lap> listLaps) {
 
 		List<KartResultTO> result = new ArrayList<>();
-		
+
 		Map<Long, SortedSet<Lap>> pilotsLaps = findByPilotLapsAsc(listLaps);
 		SortedSet<Lap> allLapsAsc = findAllLapsAsc(pilotsLaps);
 		Map<Long, String> pilotsPositionDiff = findByPilotsPositionDiff(allLapsAsc);
