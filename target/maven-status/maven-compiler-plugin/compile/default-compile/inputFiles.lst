@@ -2,6 +2,6 @@ C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\service\KartService
 C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\model\Pilot.java
 C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\KartMain.java
 C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\model\Lap.java
-C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\converter\FileToObject.java
+C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\converter\FileConverter.java
 C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\to\KartResultTO.java
 C:\Users\Asus\workspace\kart-api\src\main\java\br\com\sciuba\utils\FileReader.java

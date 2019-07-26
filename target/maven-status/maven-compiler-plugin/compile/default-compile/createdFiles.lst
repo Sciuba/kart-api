@@ -4,4 +4,4 @@ br\com\sciuba\model\Lap.class
 br\com\sciuba\to\KartResultTO.class
 br\com\sciuba\utils\FileReader.class
 br\com\sciuba\KartMain.class
-br\com\sciuba\converter\FileToObject.class
+br\com\sciuba\converter\FileConverter.class

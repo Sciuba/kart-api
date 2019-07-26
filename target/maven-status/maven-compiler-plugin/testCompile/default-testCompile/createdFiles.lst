@@ -1,0 +1,3 @@
+br\com\sciuba\service\KartServiceTest.class
+br\com\sciuba\utils\FileReaderTest.class
+br\com\sciuba\converter\FileConverterTest.class
